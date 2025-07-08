@@ -34,19 +34,31 @@ Rejected in DSA Java Round
   2nd Round- DSA - Select
   3rd Round-> LLD(Snak ladder problem)- Rejected
 
-8. Booking.com-(Rejected)
+8. Booking.com-(On hold)
     DSA Round-> selected
-    Design InstantNotification System  - Did not get feedback
+    Design InstantNotification System  - positive feedback
+   Team fit round- mostly beahvioural question, and project related discussion.
 
-9. Zeta-> shared Experience already
+10. Zeta-> shared Experience already
 
-10. Phonepe-> Gave 2 times
+11. Phonepe-> Gave 2 times
   1st time rejected in machine coding round
   2nd time rejected in DSA round
 
 
-11. Tekion- Rejected
+12. Tekion- Rejected
   Rotten Orange
+
+13.Paylocity
+Managerial Round- discussion on project, most hard challenge you did.
+
+14.BitGo- online test completed
+
+15 Salesforce online test completed
+
+16. Expedia online test completed
+
+17. Atlassian- karat round done.
 
 
 
