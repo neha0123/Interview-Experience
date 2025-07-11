@@ -7,3 +7,133 @@ Que 2 what we are going to, so you will be having again two inputs, right? One i
 
 Round 2: 
 LLD
+
+Input: customer location, []Restaurants (>50k <= 10 mil) - N
+
+Discovery(customer, Restaurants[]) : ([]Restaurant) K(2000 - 4000)
+
+Use case1 : Discover K restaurants nearest to customer by straight line distance (assume earth is flat)
+Use case2 : Discover K restaurants nearest to customer which are available by straight line distance (assume earth is flat) 
+Use case 3: Discover K restaurants which have 50% offer
+Use case 4: Discover highest rating top K restaurants
+
+Functional Requirement:
+1.Top K restaurant near.
+2. Top k restaurant which isAvailable =true
+3.Top k with having discount=50%
+4.Top K rating
+Future extensible
+Filter based on different different criteria(based on rating, amount)
+
+Api: Generic:
+
+Client facing
+1. /res/discoveryRestaurant/
+Input param-> customer location(latitude& longitude, Strategy strategy)
+Output:List<Restaurant>restaurant 
+
+2./res/discoverRes/topKRating()
+Input: List<Res>restaurant-N
+output->k List<Res>
+
+Entity:
+Actor->Customer, Restaurant
+
+1. Restaurant:
+Location Location
+Bool isAvailable()
+Bool hasOffer
+
+2.Location
+String lat;
+String long;
+
+3.User:
+String name;
+String phoneNumber;
+String emailId;
+Location location;
+
+RestaurantService-> Rating logic , addRestaurant(),
+UserService->addUser()
+
+
+Strategy  discoveryStrategy;interface-> topK by availability implementation
+List<Res> discover(List<Res>restaurant,Location location);
+
+NearestDistanceStrategy implements discoveryStrategy
+NearestOfferStragetgy 
+NearestAvailableTopKRestaurant
+
+Aggregation interface{
+SortRating()
+SortRatingWithSomeOffer();
+}
+
+Aggregation implement Rating(){
+SortRating(){
+}
+}
+
+Interface DiscoveryStrategy(){
+List<Res> discover(List<Res>restaurant,Location location);
+
+}
+NearestDistanceStrategy implements DiscoveryStrategy(){
+
+discover(List<Res>restaurant,Location location){
+restaurant.sort();
+subList(k);
+}
+
+
+NearestOfferStragetgy implements DiscoveryStrategy(){
+discover(List<Res>restaurant,Location location){
+return restaurant.filter(hasOfferAvailable).sort().limit(k);
+O(N)+O(k)+O(NlogN)->
+
+}
+
+}
+
+NearestAvailableTopKRestaurant implements DiscoveryStrategy(){
+c=0;
+List<Rest>resultRes;
+discover(List<Res>restaurant,Location location){
+Return restaurant.filter(isAvailable).sort().limit(k);
+O(N)+O(k)+O(NlogN)->
+
+
+for(auto r: restaurant){
+if(isAvailable(r)&&c<=k){
+resultRes.add(r);
+c++;
+}
+Else if(>k){
+break;
+}
+
+discover()//own way;
+}
+TopKHighestRating implements  DiscoveryStrategy(){
+discover()//own way;
+}
+
+
+
+SortRatingWithSomeOffer  implements  DiscoveryStrategy(){
+discover()//own way;
+}
+
+abstract DiscoveryStrategy(){
+addFilter();
+setSort();
+discover();
+}
+
+
+
+
+
+
+
